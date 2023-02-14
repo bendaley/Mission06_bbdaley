@@ -11,6 +11,7 @@ namespace Mission06_bbdaley.Models
         [Required]
         public string Category { get; set; }
         [Required]
+        [Key]
         public string Title { get; set; }
         [Required]
         public int Year { get; set; }

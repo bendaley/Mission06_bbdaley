@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-   <div>
-       @RenderBody()
-   </div>
+
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="MyPodcasts">My Podcasts</a>
+        <a asp-controller="Home" asp-action="MovieEntry">Movie Entry</a>
+    </nav>
+
+    <div>
+        @RenderBody()
+    </div>
 </body>
 </html>
 
