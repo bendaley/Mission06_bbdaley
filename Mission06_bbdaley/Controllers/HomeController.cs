@@ -12,10 +12,13 @@ namespace Mission06_bbdaley.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private MovieEntryContext movieTimeContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        // Constructor
+        public HomeController(ILogger<HomeController> logger, MovieEntryContext nameTime)
         {
             _logger = logger;
+            movieTimeContext = nameTime;
         }
 
         public IActionResult Index()
@@ -38,7 +41,11 @@ namespace Mission06_bbdaley.Controllers
         [HttpPost]
         public IActionResult MovieEntry(MovieEntry me)
         {
+            movieTimeContext.Add(me);
+            movieTimeContext.SaveChanges();
+
             return View();
+            
         }
 
         

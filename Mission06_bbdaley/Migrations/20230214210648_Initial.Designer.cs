@@ -8,7 +8,7 @@ using Mission06_bbdaley.Models;
 namespace Mission06_bbdaley.Migrations
 {
     [DbContext(typeof(MovieEntryContext))]
-    [Migration("20230214063125_Initial")]
+    [Migration("20230214210648_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,42 @@ namespace Mission06_bbdaley.Migrations
 
                     b.HasKey("Title");
 
-                    b.ToTable("responses");
+                    b.ToTable("Responses");
+
+                    b.HasData(
+                        new
+                        {
+                            Title = "The Proposal",
+                            Category = "Romance",
+                            Director = "Joseph B Worthin",
+                            Edited = false,
+                            Lent = "David A Bednar",
+                            Notes = "Best movie created ever",
+                            Rating = "PG-13",
+                            Year = 1980
+                        },
+                        new
+                        {
+                            Title = "Harry Potter",
+                            Category = "Fantasy",
+                            Director = "JK Rowling",
+                            Edited = false,
+                            Lent = "Pooh Bear",
+                            Notes = "Everything is sweeter with honey",
+                            Rating = "PG-13",
+                            Year = 2007
+                        },
+                        new
+                        {
+                            Title = "Forever Strong",
+                            Category = "Sports",
+                            Director = "Kevin Holt",
+                            Edited = true,
+                            Lent = "Dee Dee Holt",
+                            Notes = "Love the message",
+                            Rating = "R",
+                            Year = 2013
+                        });
                 });
 #pragma warning restore 612, 618
         }
