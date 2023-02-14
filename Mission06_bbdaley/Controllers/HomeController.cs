@@ -41,6 +41,7 @@ namespace Mission06_bbdaley.Controllers
             return View();
         }
 
+        
         public IActionResult Privacy()
         {
             return View();
