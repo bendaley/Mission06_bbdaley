@@ -8,8 +8,11 @@ namespace Mission06_bbdaley.Models
 {
     public class MovieEntry
     {
+        // built foreign key relationship
         [Required]
-        public string Category { get; set; }
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
+
         [Required]
         [Key]
         public string Title { get; set; }
