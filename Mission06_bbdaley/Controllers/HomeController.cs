@@ -37,12 +37,12 @@ namespace Mission06_bbdaley.Controllers
             ViewBag.Category = movieTimeContext.Category.ToList();
 
             // return View();
-            return View("MovieEntry");
-            // return View("MovieEntry", new MovieEntry());
+            // return View("MovieEntry");
+            return View("MovieEntry", new MovieEntryModel());
         }
 
         [HttpPost]
-        public IActionResult MovieEntry(MovieEntry me)
+        public IActionResult MovieEntry(MovieEntryModel me)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace Mission06_bbdaley.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit (MovieEntry me2)
+        public IActionResult Edit (MovieEntryModel me2)
         {
             movieTimeContext.Update(me2);
             movieTimeContext.SaveChanges();
@@ -100,7 +100,7 @@ namespace Mission06_bbdaley.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete (MovieEntry me3)
+        public IActionResult Delete (MovieEntryModel me3)
         {
             movieTimeContext.Responses.Remove(me3);
             movieTimeContext.SaveChanges();

@@ -8,7 +8,7 @@ using Mission06_bbdaley.Models;
 namespace Mission06_bbdaley.Migrations
 {
     [DbContext(typeof(MovieEntryContext))]
-    [Migration("20230221233621_Initial")]
+    [Migration("20230222215113_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

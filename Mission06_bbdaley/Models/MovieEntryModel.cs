@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mission06_bbdaley.Models
 {
-    public class MovieEntry
+    public class MovieEntryModel
     {
         // built foreign key relationship
         [Required]

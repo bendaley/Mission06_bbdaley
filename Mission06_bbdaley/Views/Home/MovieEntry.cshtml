@@ -2,24 +2,25 @@
     ViewData["Title"] = "Movie Entry";
 }
 
-@model Mission06_bbdaley.Models.MovieEntry
+@model Mission06_bbdaley.Models.MovieEntryModel
 
 <h1>Fill Out Movie Info</h1>
 
 <div>
     <form method="post">
         <div asp-validation-summary="All"></div>
-        <input asp-for="MovieID" type="hidden" />
+        <label hidden asp-for="MovieID"></label>
+        <input type="hidden" asp-for="MovieID" />
 
         <label asp-for="CategoryID">Category</label>
-        <select asp-for="CategoryID" />
+        <select asp-for="CategoryID">
             <option value="">Select a Category</option>
             @foreach (Category c in ViewBag.Category)
             {
                 <option value="@c.CategoryID">@c.CategoryName</option>
             }
-        </select>
-        <br />
+        </select><br />
+
         <label asp-for="Title">Title</label>
         <input asp-for="Title" /><br />
 

@@ -14,7 +14,7 @@ namespace Mission06_bbdaley.Models
             // Leave blank for now
         }
 
-        public DbSet<MovieEntry> Responses { get; set; }
+        public DbSet<MovieEntryModel> Responses { get; set; }
         public DbSet<Category> Category { get; set; }
 
         // seed data
@@ -31,9 +31,9 @@ namespace Mission06_bbdaley.Models
 
 
             
-            mb.Entity<MovieEntry>().HasData(
+            mb.Entity<MovieEntryModel>().HasData(
 
-                new MovieEntry
+                new MovieEntryModel
                 { 
                     MovieID = 1,
                     CategoryID = 3,
@@ -47,7 +47,7 @@ namespace Mission06_bbdaley.Models
 
                 },
 
-                new MovieEntry
+                new MovieEntryModel
                 {
                     MovieID = 2,
                     CategoryID = 5,
@@ -60,7 +60,7 @@ namespace Mission06_bbdaley.Models
                     Notes = "Everything is sweeter with honey"
                 },
 
-                new MovieEntry
+                new MovieEntryModel
                 {
                     MovieID = 3,
                     CategoryID = 4,
