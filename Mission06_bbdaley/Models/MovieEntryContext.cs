@@ -35,6 +35,7 @@ namespace Mission06_bbdaley.Models
 
                 new MovieEntry
                 { 
+                    MovieID = 1,
                     CategoryID = 3,
                     Title = "The Proposal",
                     Year = 1980,
@@ -48,6 +49,7 @@ namespace Mission06_bbdaley.Models
 
                 new MovieEntry
                 {
+                    MovieID = 2,
                     CategoryID = 5,
                     Title = "Harry Potter",
                     Year = 2007,
@@ -60,6 +62,7 @@ namespace Mission06_bbdaley.Models
 
                 new MovieEntry
                 {
+                    MovieID = 3,
                     CategoryID = 4,
                     Title = "Forever Strong",
                     Year = 2013,

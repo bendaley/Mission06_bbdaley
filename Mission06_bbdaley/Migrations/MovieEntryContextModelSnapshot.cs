@@ -58,8 +58,9 @@ namespace Mission06_bbdaley.Migrations
 
             modelBuilder.Entity("Mission06_bbdaley.Models.MovieEntry", b =>
                 {
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("MovieID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CategoryID")
                         .HasColumnType("INTEGER");
@@ -82,10 +83,14 @@ namespace Mission06_bbdaley.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Title");
+                    b.HasKey("MovieID");
 
                     b.HasIndex("CategoryID");
 
@@ -94,35 +99,38 @@ namespace Mission06_bbdaley.Migrations
                     b.HasData(
                         new
                         {
-                            Title = "The Proposal",
+                            MovieID = 1,
                             CategoryID = 3,
                             Director = "Joseph B Worthin",
                             Edited = false,
                             Lent = "David A Bednar",
                             Notes = "Best movie created ever",
                             Rating = "PG-13",
+                            Title = "The Proposal",
                             Year = 1980
                         },
                         new
                         {
-                            Title = "Harry Potter",
+                            MovieID = 2,
                             CategoryID = 5,
                             Director = "JK Rowling",
                             Edited = false,
                             Lent = "Pooh Bear",
                             Notes = "Everything is sweeter with honey",
                             Rating = "PG-13",
+                            Title = "Harry Potter",
                             Year = 2007
                         },
                         new
                         {
-                            Title = "Forever Strong",
+                            MovieID = 3,
                             CategoryID = 4,
                             Director = "Kevin Holt",
                             Edited = true,
                             Lent = "Dee Dee Holt",
                             Notes = "Love the message",
                             Rating = "R",
+                            Title = "Forever Strong",
                             Year = 2013
                         });
                 });

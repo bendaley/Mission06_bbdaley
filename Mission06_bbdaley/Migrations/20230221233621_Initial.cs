@@ -23,8 +23,10 @@ namespace Mission06_bbdaley.Migrations
                 name: "Responses",
                 columns: table => new
                 {
-                    Title = table.Column<string>(nullable: false),
+                    MovieID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     CategoryID = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(nullable: false),
                     Year = table.Column<int>(nullable: false),
                     Director = table.Column<string>(nullable: false),
                     Rating = table.Column<string>(nullable: false),
@@ -34,7 +36,7 @@ namespace Mission06_bbdaley.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Responses", x => x.Title);
+                    table.PrimaryKey("PK_Responses", x => x.MovieID);
                     table.ForeignKey(
                         name: "FK_Responses_Category_CategoryID",
                         column: x => x.CategoryID,
@@ -70,18 +72,18 @@ namespace Mission06_bbdaley.Migrations
 
             migrationBuilder.InsertData(
                 table: "Responses",
-                columns: new[] { "Title", "CategoryID", "Director", "Edited", "Lent", "Notes", "Rating", "Year" },
-                values: new object[] { "The Proposal", 3, "Joseph B Worthin", false, "David A Bednar", "Best movie created ever", "PG-13", 1980 });
+                columns: new[] { "MovieID", "CategoryID", "Director", "Edited", "Lent", "Notes", "Rating", "Title", "Year" },
+                values: new object[] { 1, 3, "Joseph B Worthin", false, "David A Bednar", "Best movie created ever", "PG-13", "The Proposal", 1980 });
 
             migrationBuilder.InsertData(
                 table: "Responses",
-                columns: new[] { "Title", "CategoryID", "Director", "Edited", "Lent", "Notes", "Rating", "Year" },
-                values: new object[] { "Forever Strong", 4, "Kevin Holt", true, "Dee Dee Holt", "Love the message", "R", 2013 });
+                columns: new[] { "MovieID", "CategoryID", "Director", "Edited", "Lent", "Notes", "Rating", "Title", "Year" },
+                values: new object[] { 3, 4, "Kevin Holt", true, "Dee Dee Holt", "Love the message", "R", "Forever Strong", 2013 });
 
             migrationBuilder.InsertData(
                 table: "Responses",
-                columns: new[] { "Title", "CategoryID", "Director", "Edited", "Lent", "Notes", "Rating", "Year" },
-                values: new object[] { "Harry Potter", 5, "JK Rowling", false, "Pooh Bear", "Everything is sweeter with honey", "PG-13", 2007 });
+                columns: new[] { "MovieID", "CategoryID", "Director", "Edited", "Lent", "Notes", "Rating", "Title", "Year" },
+                values: new object[] { 2, 5, "JK Rowling", false, "Pooh Bear", "Everything is sweeter with honey", "PG-13", "Harry Potter", 2007 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Responses_CategoryID",

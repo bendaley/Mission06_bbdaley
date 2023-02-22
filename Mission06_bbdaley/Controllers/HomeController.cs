@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission06_bbdaley.Models;
 using System;
@@ -33,26 +34,79 @@ namespace Mission06_bbdaley.Controllers
         [HttpGet]
         public IActionResult MovieEntry()
         {
-            return View();
+            ViewBag.Category = movieTimeContext.Category.ToList();
+
+            // return View();
+            return View("MovieEntry");
+            // return View("MovieEntry", new MovieEntry());
         }
 
         [HttpPost]
         public IActionResult MovieEntry(MovieEntry me)
         {
-            movieTimeContext.Add(me);
-            movieTimeContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                movieTimeContext.Add(me);
+                movieTimeContext.SaveChanges();
 
-            return View();
+                return View();
+            }
+            else // if invalid
+            {
+                return View(me);
+            }
+
             
+
+            
+
         }
 
         public IActionResult MovieList()
         {
             var movieApps = movieTimeContext.Responses
-                .OrderBy(x => x.Category)
+                .Include(x => x.Category)
+                .OrderBy(x => x.Title)
                 .ToList();
 
             return View(movieApps);
+        }
+
+        [HttpGet]
+        public IActionResult Edit (int movieid) // (int movieid)
+        {
+            ViewBag.Category = movieTimeContext.Category.ToList();
+
+            var movie = movieTimeContext.Responses.Single(x => x.MovieID == movieid);
+
+            return View("MovieEntry", movie);
+        }
+
+        [HttpPost]
+        public IActionResult Edit (MovieEntry me2)
+        {
+            movieTimeContext.Update(me2);
+            movieTimeContext.SaveChanges();
+
+            return RedirectToAction("MovieList");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int movieid)
+        {
+            var movie = movieTimeContext.Responses.Single(x => x.MovieID == movieid);
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete (MovieEntry me3)
+        {
+            movieTimeContext.Responses.Remove(me3);
+            movieTimeContext.SaveChanges();
+
+            return RedirectToAction("MovieList");
+
         }
     }
 }

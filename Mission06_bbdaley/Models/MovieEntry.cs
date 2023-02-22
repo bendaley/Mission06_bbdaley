@@ -15,6 +15,9 @@ namespace Mission06_bbdaley.Models
 
         [Required]
         [Key]
+        public int MovieID { get; set; }
+
+        [Required]
         public string Title { get; set; }
         [Required]
         public int Year { get; set; }
