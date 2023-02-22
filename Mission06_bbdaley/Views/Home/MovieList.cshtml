@@ -31,8 +31,10 @@
             <td>@x.Lent</td>
             <td>@x.Notes</td>
 
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieID">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieID" >Delete</a></td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.MovieID">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.MovieID" asp- >Delete</a></td>
+
+            
         </tr>
         }
     </tbody>
