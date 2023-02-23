@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// this page sets up the movie entry constructor & seeds the data   
+
 namespace Mission06_bbdaley.Models
 {
     public class MovieEntryContext : DbContext

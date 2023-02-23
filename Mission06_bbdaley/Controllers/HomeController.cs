@@ -20,17 +20,19 @@ namespace Mission06_bbdaley.Controllers
             movieTimeContext = nameTime;
         }
 
+        // index page
         public IActionResult Index()
         {
             return View();
         }
 
-
+        // podcasts page
         public IActionResult MyPodcasts()
         {
             return View("Podcasts");
         }
 
+        // add movies
         [HttpGet]
         public IActionResult MovieEntry()
         {
@@ -62,6 +64,7 @@ namespace Mission06_bbdaley.Controllers
 
         }
 
+        // list movies
         public IActionResult MovieList()
         {
             var movieApps = movieTimeContext.Responses
@@ -72,8 +75,9 @@ namespace Mission06_bbdaley.Controllers
             return View(movieApps);
         }
 
+        // edit movies
         [HttpGet]
-        public IActionResult Edit (int movieid) // (int movieid)
+        public IActionResult Edit (int movieid)
         {
             ViewBag.Category = movieTimeContext.Category.ToList();
 
@@ -91,6 +95,7 @@ namespace Mission06_bbdaley.Controllers
             return RedirectToAction("MovieList");
         }
 
+        // delete movies
         [HttpGet]
         public IActionResult Delete(int movieid)
         {
